@@ -12,8 +12,8 @@ Interfaces for Student CRUD state & props
 ------------------------------------------------*/
 interface IUserCRUDProps {
     studentDetails?: Student;
-    hideViewMoreCallback(): void
-    // hideViewMoreCallback: ((details: FooDetails) => void)
+    hideViewMoreCallback(): void;
+    sendDetailsCallback?: ((studentDetails: Student) => void);
 }
 
 interface IUserCRUDState {

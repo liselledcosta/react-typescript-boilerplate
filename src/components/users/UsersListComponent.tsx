@@ -46,7 +46,7 @@ export class UsersListComponent extends React.Component<IUserListProps, IUserLis
       </table>
       {
         this.state.viewMoreModal &&
-        <UsersCRUDModalComponent hideViewMoreCallback={this.hideViewMoreHandler}/>
+        <UsersCRUDModalComponent hideViewMoreCallback={this.hideViewMoreHandler} sendDetailsCallback={this.sendDetailsHandler}/>
       }
     </div>
   }
@@ -63,8 +63,14 @@ export class UsersListComponent extends React.Component<IUserListProps, IUserLis
     this.setState({viewMoreModal: true})
   }
 
+  // DUMMY CALLBACK HANDLER WITHOUT PARAMS
   public hideViewMoreHandler = ():void => {
     this.setState({viewMoreModal: false})
+  }
+
+  // DUMMY CALLBACK HANDLER WITH PARAMS
+  public sendDetailsHandler = (studentDetails: Student):void => {
+    console.log("LD Debug - studentDetails : ", studentDetails)
   }
 
 }

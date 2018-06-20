@@ -18,7 +18,7 @@ export class UsersCRUDModalComponent extends React.Component<IUserCRUDProps, IUs
     }
 
   componentWillMount() {
-      
+      this.props.sendDetailsCallback(this.state.studentDetails);
   }
 
   render() {
@@ -55,8 +55,14 @@ export class UsersCRUDModalComponent extends React.Component<IUserCRUDProps, IUs
   }
 
   
+    // DUMMY CALLBACK WIHTOUT SENDING PARAMS
     public handleClose = () => {
         this.props.hideViewMoreCallback();
+    }
+    
+    // DUMMY CALLBACK BY SENDING PARAMS
+    public sendDetails = (studentDetails:Student) => {
+        this.props.sendDetailsCallback(studentDetails);
     }
 
     // e: React.FormEvent
