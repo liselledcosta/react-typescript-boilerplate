@@ -12,6 +12,7 @@
 
 ### Contribution guidelines ###
 * Included bootstrap and react-boottrap as frameworks for FE development (https://react-bootstrap.github.io/components/alerts/)
+* Config contains setup for scss and css
 
 ### Who do I talk to? ###
 * Liselle D'Costa
