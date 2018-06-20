@@ -1,0 +1,20 @@
+$grey: #f3f3f3;
+$white: #fff;
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $font-stack;
+  font-size: 14px;
+  line-height: 1.3rem;
+  background-color: $white;
+}
+
+table {
+    border: 1px solid #ededed;
+    width: 100%;
+    tr {
+        td {
+            padding: 8px;
+        }
+    }
+}
