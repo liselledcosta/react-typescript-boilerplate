@@ -1,29 +1,17 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
 ### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Boilerplate for react - typescript app using webpack
+* Basic setup link step 1 (https://levelup.gitconnected.com/react-typescript-with-webpack-2fceebb8faf)
+* Basic setup link step 1 (https://medium.com/@richbray/react-typescript-with-webpack-part-2-aa02d150c59b)
 
 ### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Container all required packages. To run:
+- npm install
+- npm start
 
 ### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* Included bootstrap and react-boottrap as frameworks for FE development (https://react-bootstrap.github.io/components/alerts/)
 
 ### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Liselle D'Costa
