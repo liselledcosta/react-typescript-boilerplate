@@ -1,12 +1,14 @@
 import * as React from "react";
 import { browserHistory } from "react-router";
 import { Button } from 'react-bootstrap';
+import { UsersCRUDModalComponent } from "./UsersCRUDModalComponent";
 
 export class UsersListComponent extends React.Component<IUserListProps, IUserListState> {
   constructor(props: IUserListProps) {
     super(props);
     this.state = {
-      students: []
+      students: [],
+      viewMoreModal: false
     }
   }
 
@@ -17,36 +19,52 @@ export class UsersListComponent extends React.Component<IUserListProps, IUserLis
 
 
   render() {
-    return <div>
-      <h1 className="myclass">List of users</h1>
-      <Button className="default" onClick={this.addNew}>Add more</Button>
-      <table>
+    return <div className="container">
+      <h3 className="myclass">List of users <Button className="default" onClick={this.addNew}>Add user</Button></h3>
+      
+      <table className="table">
         <thead>
           <tr>
             <td>Name</td>
-            <td>Age</td>
+            <td>Email</td>
+            <td>Contact</td>
+            <td></td>
           </tr>
         </thead>
         <tbody>
           {
             this.state.students.map((obj: Student) => {
-              return <tr onClick={() => this.viewUserDetails('1')}>
-                <td className="red-bg">{obj.name}</td>
-                <td>{obj.age}</td>
+              return <tr>
+                <td onClick={() => this.viewUserDetails('1')} className="red-bg">{obj.name}</td>
+                <td>{obj.email}</td>
+                <td>{obj.contact}</td>
+                <td onClick={() => this.viewMore('1')}>View more</td>
               </tr>
             })
           }
         </tbody>
       </table>
+      {
+        this.state.viewMoreModal &&
+        <UsersCRUDModalComponent hideViewMoreCallback={this.hideViewMoreHandler}/>
+      }
     </div>
   }
 
   private addNew = (): void => {
-    browserHistory.push('/usersAdd');
+    browserHistory.push('/users/add');
   }
 
   public viewUserDetails(id: string):void {
     browserHistory.push('/user/' + id);
+  }
+
+  public viewMore = (id: string):void => {
+    this.setState({viewMoreModal: true})
+  }
+
+  public hideViewMoreHandler = ():void => {
+    this.setState({viewMoreModal: false})
   }
 
 }

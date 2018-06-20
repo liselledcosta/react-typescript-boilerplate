@@ -10,64 +10,56 @@ export class UsersCRUDComponent extends React.Component<IUserCRUDProps, IUserCRU
         this.state = {
             studentDetails: {
                 name: "",
+                email: "",
+                contact: "",
                 age: 0
             },
-            show: false
         }
     }
 
   componentWillMount() {
-    this.handleShow();
+      
   }
 
   render() {
     return(
-    <div className="static-modal">
-    <Modal show={this.state.show} onHide={this.handleClose}>
-        <ModalHeader>
-        <ModalTitle>Modal title</ModalTitle>
-        </ModalHeader>
+    <div className="row">
+        <div className="col-md-4 col-md-offset-4">
             <form>
-
-        <ModalBody>
-                <label>
-                    Name:
-                    <input type="text" name="name" ref="name" />
-                </label>
-                <label>
-                    Age:
-                    <input type="number" name="age" ref="age" />
-                </label>
-                <input type="button" value="Submit"  />
-        </ModalBody>
-
-        <ModalFooter>
-            <Button onClick={this.handleClose}>Close</Button>
-            <Button bsStyle="primary" type="button" onClick={this.handleSubmit}>Save changes</Button>
-        </ModalFooter>
-        </form>
-    </Modal>
+                <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" className="form-control" placeholder="Name" ref="name" />
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" className="form-control" placeholder="Email" ref="email" />
+                </div>
+                <div className="form-group">
+                    <label>Contact no</label>
+                    <input type="text" className="form-control" placeholder="Contact no" ref="contact" />
+                </div>
+                <div className="form-group">
+                    <label>Age</label>
+                    <input type="number" className="form-control" placeholder="Age" ref="age" />
+                </div>
+                <button className="btn btn-primary" type="button" onClick={this.handleSubmit}>Save changes</button>
+            </form>
+        </div>
     </div>
     )
   }
 
-  
-    public handleClose = () => {
-        this.setState({ show: false });
-    }
-
-    public handleShow = () => {
-        this.setState({ show: true });
-    }
 
     // e: React.FormEvent
     public handleSubmit = () => {
-        console.log("Inside handle submit")
           const name = (this.refs['name'] as any as HTMLInputElement).value.trim();
-          const age = parseInt((this.refs['age'] as any as HTMLInputElement).value);
+          const email = (this.refs['email'] as any as HTMLInputElement).value.trim();
+          const contact = (this.refs['contact'] as any as HTMLInputElement).value.trim();
+          const age = parseInt((this.refs['contact'] as any as HTMLInputElement).value);
           var studentDetails = {} as Student;
           studentDetails.name = name;
-          studentDetails.age = age;
+          studentDetails.email = email;
+          studentDetails.contact = contact;
           
           let localStorageData = JSON.parse(localStorage.getItem('students')) || [];
           if (!_.isEmpty(localStorageData)) {

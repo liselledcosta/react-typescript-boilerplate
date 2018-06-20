@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { HeaderLayout } from "./HeaderLayout";
 
 export class MainLayout extends React.Component<{}, {}> {
 
@@ -10,16 +10,10 @@ export class MainLayout extends React.Component<{}, {}> {
 
   render() {
     return (
-      <Grid fluid={true}>
-          <Row>
-            <Col xs={12}>
-              <div>
-                <h1 className="myclass">Rendering in main layout</h1>
-                {this.props.children}
-              </div>
-            </Col>
-          </Row>
-      </Grid>
+      <div>
+        <HeaderLayout />
+        {this.props.children}
+      </div>
     )
   }
 }

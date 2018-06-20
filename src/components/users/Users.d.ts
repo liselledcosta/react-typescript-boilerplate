@@ -3,19 +3,21 @@ Common interfaces
 ------------------------------------------------*/
 interface Student {
     name: string;
-    age: number;
+    email: string;
+    contact: string;
+    age: number
 }
 /* -----------------------------------------------
 Interfaces for Student CRUD state & props
 ------------------------------------------------*/
 interface IUserCRUDProps {
-    studentDetails: Student;
-    show: boolean
+    studentDetails?: Student;
+    hideViewMoreCallback(): void
+    // hideViewMoreCallback: ((details: FooDetails) => void)
 }
 
 interface IUserCRUDState {
     studentDetails: Student;
-    show: boolean
 }
 /* -----------------------------------------------
 Interfaces for Student List state & props
@@ -26,6 +28,7 @@ interface IUserListProps {
 
 interface IUserListState {
     students: Array<Student>;
+    viewMoreModal: boolean;
 }
 /* -----------------------------------------------
 Interfaces for Student Details state & props

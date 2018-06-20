@@ -20,7 +20,7 @@ export class App extends React.Component<{}, {}> {
         <Route path="/" component={MainLayout}>
           <IndexRedirect to="/users" />
           <Route path="/users" component={UsersListComponent} />
-          <Route path="/usersAdd" component={UsersCRUDComponent} />
+          <Route path="/users/add" component={UsersCRUDComponent} />
           <Route path="/user/:id" component={UserDetailsComponent} />
         </Route>
     </Router>
